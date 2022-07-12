@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+       body{
+        text-align: center;
+       }
+       h1{
+        margin-top: 3rem;
+       }
+       li{
+        list-style: none;
+        
+       }
+       hr{
+        width: 50%
+       }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1><i class="fas fa-address-book"></i> Contact List</h1>
+    <div>
+        <ul>
+            <% for(let i of contact_list){ %>
+                <li>
+                   <p><%= i.name %></p>
+                <p><%= i.phone %></p>
+                <a href="/delete-contact/?id=<%= i._id %>">
+                    <i class="fas fa-window-close"></i>
+                </a>
+                <hr>
+                </li>
+           <%}%>
+        </ul>
+    </div>
+    <form action="/home" method="post">
+        <input type="text" name="name" placeholder="enter name" required>
+        <input type="number" name="phone" placeholder="enter phone" required>
+        <button>Add Contact</button>
+    </form>
+</body>
+</html>
